@@ -51,7 +51,7 @@ export default function NominationSection() {
             רוצים להתנדב?
           </h3>
           <p className="text-lg text-muted-foreground">
-            מוזמנים לכתוב לנו ולהשאיר את פרטיך הרלוונטיים
+            מוזמנים לכתוב לנו ולהשאיר את פרטיכם הרלוונטיים
           </p>
         </motion.div>
 
