@@ -81,7 +81,7 @@ export default function Experts() {
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
             המומחים שלנו
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             בוגרי הופמן קופמן שתורמים מזמנם, מניסיונם ומהידע שלהם לקהילה
           </p>
         </motion.div>
