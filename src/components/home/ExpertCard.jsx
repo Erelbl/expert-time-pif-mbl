@@ -52,7 +52,11 @@ export default function ExpertCard({ expert, index = 0 }) {
           <h3 className="text-xl font-bold text-foreground mb-1">{expert.full_name}</h3>
           {expert.cohort_name && (
             <p className="text-sm text-accent font-medium">
-              {expert.cohort_name.match(/\d+/) ? expert.cohort_name.match(/\d+/)[0] : expert.cohort_name}
+              {(() => {
+                const hebrewLetters = { 'א': 1, 'ב': 2, 'ג': 3, 'ד': 4, 'ה': 5, 'ו': 6 };
+                const match = expert.cohort_name.match(/([א-ו])/);
+                return match ? `נבחרת ${hebrewLetters[match[1]]}` : expert.cohort_name;
+              })()}
             </p>
           )}
         </div>
