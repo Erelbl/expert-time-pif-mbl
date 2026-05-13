@@ -29,7 +29,7 @@ export default function PreviousExpertsSection() {
             מומחים שנפגשו עם הקהילה
           </h3>
           <p className="text-lg text-muted-foreground">
-            תודה למומחים שתרמו מזמנם וידעם לקהילה
+            תודה למומחים שתרמו מזמנם והידע שלהם לקהילה
           </p>
         </motion.div>
 
