@@ -1,5 +1,6 @@
 import React from "react";
-import { Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Sparkles, Settings } from "lucide-react";
 
 export default function FooterSection() {
   return (
@@ -15,9 +16,17 @@ export default function FooterSection() {
               מתוך הקהילה, לקהילה — יוזמת בוגרי הופמן קופמן
             </p>
           </div>
-          <div className="text-center md:text-left">
+          <div className="flex items-center gap-6">
+            <Link
+              to="/admin"
+              className="flex items-center gap-1.5 text-primary-foreground/60 hover:text-primary-foreground/80 transition-colors text-sm"
+            >
+              <Settings className="w-4 h-4" />
+              <span>ניהול</span>
+            </Link>
+            <div className="h-8 w-px bg-primary-foreground/20" />
             <p className="text-primary-foreground/40 text-sm">
-              © {new Date().getFullYear()} Expert Time | Hoffman Kofman Alumni
+              © {new Date().getFullYear()} Expert Time
             </p>
           </div>
         </div>

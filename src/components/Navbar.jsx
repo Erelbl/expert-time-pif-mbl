@@ -59,19 +59,6 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link to="/admin">
-            <Button
-              variant="outline"
-              size="sm"
-              className={`rounded-full text-sm ${
-                scrolled || !isHero
-                  ? "border-border/50 hover:border-accent/50"
-                  : "border-white/20 text-primary-foreground hover:bg-white/10"
-              }`}
-            >
-              ניהול
-            </Button>
-          </Link>
         </div>
 
         {/* Mobile nav */}
@@ -85,22 +72,17 @@ export default function Navbar() {
             <SheetContent side="right" className="w-72">
               <div className="flex flex-col gap-6 mt-8">
                 {navLinks.map((link) => (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    onClick={() => setOpen(false)}
-                    className={`text-lg font-medium transition-colors ${
-                      location.pathname === link.path ? "text-accent" : "text-foreground"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-                <Link to="/admin" onClick={() => setOpen(false)}>
-                  <Button variant="outline" className="w-full rounded-xl mt-4">
-                    ניהול
-                  </Button>
-                </Link>
+                   <Link
+                     key={link.path}
+                     to={link.path}
+                     onClick={() => setOpen(false)}
+                     className={`text-lg font-medium transition-colors ${
+                       location.pathname === link.path ? "text-accent" : "text-foreground"
+                     }`}
+                   >
+                     {link.label}
+                   </Link>
+                 ))}
               </div>
             </SheetContent>
           </Sheet>
