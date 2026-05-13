@@ -15,6 +15,8 @@ export default function NominationSection() {
   const [form, setForm] = useState({
     full_name: "",
     email: "",
+    phone: "",
+    cohort_name: "",
     expertise_area: "",
     short_bio: "",
   });
@@ -25,7 +27,7 @@ export default function NominationSection() {
     await base44.integrations.Core.SendEmail({
       to: "info@experttime.co.il",
       subject: `בקשת התנדבות: ${form.full_name}`,
-      body: `שם: ${form.full_name}\nאימייל: ${form.email}\nתחום מומחיות: ${form.expertise_area}\nתיאור: ${form.short_bio}`
+      body: `שם: ${form.full_name}\nאימייל: ${form.email}\nטלפון: ${form.phone}\nנבחרת: ${form.cohort_name}\nתחום מומחיות: ${form.expertise_area}\nתיאור: ${form.short_bio}`
     });
     setLoading(false);
     setSubmitted(true);
@@ -95,6 +97,26 @@ export default function NominationSection() {
                   onChange={(e) => updateField("email", e.target.value)}
                   className="rounded-xl"
                   dir="ltr"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label>טלפון</Label>
+                <Input
+                  type="tel"
+                  placeholder="05X-XXXXXXX"
+                  value={form.phone}
+                  onChange={(e) => updateField("phone", e.target.value)}
+                  className="rounded-xl"
+                  dir="ltr"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label>נבחרת</Label>
+                <Input
+                  placeholder="שם הנבחרת"
+                  value={form.cohort_name}
+                  onChange={(e) => updateField("cohort_name", e.target.value)}
+                  className="rounded-xl"
                 />
               </div>
             </div>
