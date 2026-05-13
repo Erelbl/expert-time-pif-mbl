@@ -55,7 +55,7 @@ export default function HeroSection() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-lg text-primary-foreground/40 max-w-2xl mx-auto mb-12 leading-relaxed"
           >
-            בכל מחזור, 4 מומחים מקהילת הבוגרים של הופמן קופמן מתנדבים להעניק
+            בכל סבב, 4 מומחים מקהילת הבוגרים של הופמן קופמן מתנדבים להעניק
             שעות ייעוץ לחברי הקהילה. ידע, ניסיון וחיבור — מתוך הקהילה, לקהילה.
           </motion.p>
 
@@ -72,15 +72,6 @@ export default function HeroSection() {
               >
                 קביעת שיחה
                 <ArrowLeft className="w-5 h-5 mr-2" />
-              </Button>
-            </Link>
-            <Link to="/about">
-              <Button
-                variant="ghost"
-                size="lg"
-                className="text-primary-foreground/60 hover:text-primary-foreground hover:bg-white/5 text-lg px-8 py-6 rounded-full"
-              >
-                על היוזמה
               </Button>
             </Link>
           </motion.div>

@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { label: "ראשי", path: "/" },
   { label: "המומחים", path: "/experts" },
-  { label: "על היוזמה", path: "/about" },
 ];
 
 export default function Navbar() {

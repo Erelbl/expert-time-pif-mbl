@@ -11,7 +11,6 @@ import AdminLayout from '@/components/admin/AdminLayout';
 import Home from '@/pages/Home';
 import Experts from '@/pages/Experts';
 import ExpertProfile from '@/pages/ExpertProfile';
-import About from '@/pages/About';
 import ExpertsAdmin from '@/pages/admin/ExpertsAdmin';
 import BookingsAdmin from '@/pages/admin/BookingsAdmin';
 import CohortsAdmin from '@/pages/admin/CohortsAdmin';
@@ -45,7 +44,6 @@ const AuthenticatedApp = () => {
         <Route path="/" element={<Home />} />
         <Route path="/experts" element={<Experts />} />
         <Route path="/expert/:id" element={<ExpertProfile />} />
-        <Route path="/about" element={<About />} />
       </Route>
       <Route element={<AdminLayout />}>
         <Route path="/admin" element={<ExpertsAdmin />} />
