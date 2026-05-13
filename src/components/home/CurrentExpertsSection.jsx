@@ -22,7 +22,7 @@ export default function CurrentExpertsSection() {
           className="text-center mb-16"
         >
           <h2 className="text-sm font-semibold text-accent tracking-widest uppercase mb-4">
-            המחזור הנוכחי
+            מוזמנים להירשם
           </h2>
           <h3 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
             המומחים שלנו
