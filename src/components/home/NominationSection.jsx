@@ -13,20 +13,23 @@ export default function NominationSection() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
-    nominee_name: "",
-    nominee_email: "",
-    nominator_name: "",
+    full_name: "",
+    email: "",
     expertise_area: "",
-    reason: "",
+    short_bio: "",
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    await base44.entities.Nomination.create(form);
+    await base44.integrations.Core.SendEmail({
+      to: "info@experttime.co.il",
+      subject: `בקשת התנדבות: ${form.full_name}`,
+      body: `שם: ${form.full_name}\nאימייל: ${form.email}\nתחום מומחיות: ${form.expertise_area}\nתיאור: ${form.short_bio}`
+    });
     setLoading(false);
     setSubmitted(true);
-    toast({ title: "ההמלצה נשלחה בהצלחה!", description: "תודה על ההמלצה. נבחן את המועמדות." });
+    toast({ title: "תודה!", description: "קיבלנו את פרטיך. נחזור אליך בקרוב." });
   };
 
   const updateField = (field, value) => setForm((prev) => ({ ...prev, [field]: value }));
@@ -42,13 +45,13 @@ export default function NominationSection() {
           className="text-center mb-12"
         >
           <h2 className="text-sm font-semibold text-accent tracking-widest uppercase mb-4">
-            הציעו מומחה
+            הצטרפו כמומחה
           </h2>
           <h3 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            מכירים מומחה בקהילה?
+            רוצים להתנדב?
           </h3>
           <p className="text-lg text-muted-foreground">
-            המליצו על בוגר/ת שלדעתכם יכולים לתרום לקהילה במחזור הבא
+            מוזמנים לכתוב לנו ולהשאיר את פרטיך הרלוונטיים
           </p>
         </motion.div>
 
@@ -73,53 +76,44 @@ export default function NominationSection() {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <Label>שם המועמד/ת *</Label>
+                <Label>שם מלא *</Label>
                 <Input
                   required
                   placeholder="שם מלא"
-                  value={form.nominee_name}
-                  onChange={(e) => updateField("nominee_name", e.target.value)}
+                  value={form.full_name}
+                  onChange={(e) => updateField("full_name", e.target.value)}
                   className="rounded-xl"
                 />
               </div>
               <div className="space-y-2">
-                <Label>אימייל המועמד/ת</Label>
+                <Label>אימייל *</Label>
                 <Input
                   type="email"
+                  required
                   placeholder="email@example.com"
-                  value={form.nominee_email}
-                  onChange={(e) => updateField("nominee_email", e.target.value)}
+                  value={form.email}
+                  onChange={(e) => updateField("email", e.target.value)}
                   className="rounded-xl"
                   dir="ltr"
                 />
               </div>
-              <div className="space-y-2">
-                <Label>שם הממליץ/ה *</Label>
-                <Input
-                  required
-                  placeholder="שם מלא"
-                  value={form.nominator_name}
-                  onChange={(e) => updateField("nominator_name", e.target.value)}
-                  className="rounded-xl"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label>תחום מומחיות *</Label>
-                <Input
-                  required
-                  placeholder="לדוגמה: אסטרטגיה, טכנולוגיה, ניהול"
-                  value={form.expertise_area}
-                  onChange={(e) => updateField("expertise_area", e.target.value)}
-                  className="rounded-xl"
-                />
-              </div>
             </div>
             <div className="space-y-2">
-              <Label>למה כדאי לבחור במועמד/ת?</Label>
+              <Label>תחום מומחיות *</Label>
+              <Input
+                required
+                placeholder="לדוגמה: אסטרטגיה, טכנולוגיה, ניהול"
+                value={form.expertise_area}
+                onChange={(e) => updateField("expertise_area", e.target.value)}
+                className="rounded-xl"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label>קצת על עצמך</Label>
               <Textarea
-                placeholder="ספרו לנו למה המועמד/ת מתאימ/ה..."
-                value={form.reason}
-                onChange={(e) => updateField("reason", e.target.value)}
+                placeholder="ספר/י על הרקע, הניסיון והתחומים בהם תוכל/י לתרום..."
+                value={form.short_bio}
+                onChange={(e) => updateField("short_bio", e.target.value)}
                 className="rounded-xl min-h-[120px]"
               />
             </div>
@@ -129,7 +123,7 @@ export default function NominationSection() {
               className="w-full bg-accent hover:bg-accent/90 text-accent-foreground rounded-xl py-6 text-lg font-semibold"
             >
               <Send className="w-5 h-5 ml-2" />
-              {loading ? "שולח..." : "שליחת המלצה"}
+              {loading ? "שולח..." : "שליחת בקשה"}
             </Button>
           </motion.form>
         )}
