@@ -59,10 +59,6 @@ export default function ExpertCard({ expert, index = 0 }) {
           {expert.expertise_area}
         </Badge>
 
-        <p className="text-muted-foreground text-sm leading-relaxed mb-6 line-clamp-none">
-          {expert.short_bio}
-        </p>
-
         <div className="flex items-center gap-3">
           <Link to={`/expert/${expert.id}`} className="flex-1">
             <Button
