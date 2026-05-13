@@ -10,38 +10,38 @@
     --font-inter: 'Inter', sans-serif;
 
     --background: 0 0% 98%;
-    --foreground: 220 60% 18%;
+    --foreground: 220 20% 15%;
     --card: 0 0% 100%;
-    --card-foreground: 220 60% 18%;
+    --card-foreground: 220 20% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 60% 18%;
-    --primary: 218 59% 26%;
+    --popover-foreground: 220 20% 15%;
+    --primary: 217 58% 42%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 172 57% 44%;
+    --secondary: 158 52% 48%;
     --secondary-foreground: 0 0% 100%;
     --muted: 215 20% 94%;
     --muted-foreground: 215 15% 48%;
-    --accent: 172 57% 44%;
+    --accent: 158 52% 48%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 215 20% 88%;
     --input: 215 20% 88%;
     --ring: 172 57% 44%;
-    --chart-1: 218 59% 26%;
-    --chart-2: 172 57% 44%;
-    --chart-3: 218 40% 45%;
-    --chart-4: 172 40% 65%;
-    --chart-5: 218 20% 60%;
+    --chart-1: 217 58% 42%;
+    --chart-2: 158 52% 48%;
+    --chart-3: 217 45% 55%;
+    --chart-4: 158 40% 65%;
+    --chart-5: 217 20% 60%;
     --radius: 0.75rem;
-    --sidebar-background: 218 59% 20%;
+    --sidebar-background: 217 58% 22%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 172 57% 44%;
+    --sidebar-primary: 158 52% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 218 50% 28%;
+    --sidebar-accent: 217 50% 30%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 218 40% 30%;
-    --sidebar-ring: 172 57% 44%;
+    --sidebar-border: 217 40% 32%;
+    --sidebar-ring: 158 52% 48%;
   }
 
   .dark {
@@ -51,13 +51,13 @@
     --card-foreground: 0 0% 95%;
     --popover: 218 50% 15%;
     --popover-foreground: 0 0% 95%;
-    --primary: 172 57% 44%;
+    --primary: 158 52% 48%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 218 40% 22%;
+    --secondary: 217 45% 25%;
     --secondary-foreground: 0 0% 95%;
-    --muted: 218 40% 18%;
+    --muted: 217 40% 18%;
     --muted-foreground: 215 15% 62%;
-    --accent: 172 57% 44%;
+    --accent: 158 52% 48%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
@@ -92,13 +92,13 @@
 
 @layer utilities {
   .text-gold-gradient {
-    background: linear-gradient(135deg, hsl(172 57% 44%), hsl(172 70% 60%), hsl(172 57% 44%));
+    background: linear-gradient(135deg, hsl(158 52% 48%), hsl(158 65% 62%), hsl(217 58% 55%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   .bg-hero-gradient {
-    background: linear-gradient(135deg, hsl(218 59% 16%) 0%, hsl(218 59% 22%) 50%, hsl(218 50% 28%) 100%);
+    background: linear-gradient(135deg, hsl(217 58% 18%) 0%, hsl(217 58% 28%) 50%, hsl(217 50% 36%) 100%);
   }
   .glass-card {
     background: rgba(255, 255, 255, 0.08);
