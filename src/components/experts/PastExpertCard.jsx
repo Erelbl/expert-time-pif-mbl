@@ -60,9 +60,6 @@ export default function PastExpertCard({ expert, index = 0 }) {
           </div>
 
           <div className="flex flex-wrap gap-1.5 mt-2">
-            <Badge variant="secondary" className="text-xs font-medium px-2 py-0.5">
-              {expert.expertise_area}
-            </Badge>
             {expert.industries?.slice(0, 2).map((ind) => (
               <Badge key={ind} variant="outline" className="text-xs border-border/50 text-muted-foreground px-2 py-0.5">
                 {ind}
