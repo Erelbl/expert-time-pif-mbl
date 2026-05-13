@@ -45,7 +45,7 @@ export default function NominationSection() {
           className="text-center mb-12"
         >
           <h2 className="text-sm font-semibold text-accent tracking-widest uppercase mb-4">
-            הצטרפו כמומחה
+            הצטרפו כמומחים
           </h2>
           <h3 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
             רוצים להתנדב?
