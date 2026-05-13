@@ -96,13 +96,7 @@ export default function Experts() {
           >
             <div className="w-2 h-8 bg-accent rounded-full" />
             <div>
-              <h2 className="text-2xl font-bold text-foreground">המחזור הנוכחי</h2>
-              <p className="text-sm text-muted-foreground">זמינים עכשיו לשיחות ייעוץ</p>
-            </div>
-            <div className="mr-auto">
-              <Badge className="bg-accent/15 text-accent border-accent/30 px-3 py-1 text-sm font-medium">
-                פתוח להזמנות
-              </Badge>
+              <h2 className="text-2xl font-bold text-foreground">זמינים לשיחות ייעוץ</h2>
             </div>
           </motion.div>
 
