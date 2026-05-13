@@ -86,8 +86,8 @@ export default function PastExpertCard({ expert, index = 0 }) {
               )}
 
               {expert.experience && (
-                <div>
-                  <p className="text-sm font-semibold text-foreground mb-1">ניסיון</p>
+               <div>
+                 <p className="text-sm font-semibold text-foreground mb-1">מוסיפים ערך בנושאים הבאים</p>
                   <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
                     {expert.experience}
                   </p>
