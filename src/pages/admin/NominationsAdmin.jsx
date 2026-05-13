@@ -1,10 +1,12 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { base44 } from "@/api/base44Client";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useToast } from "@/components/ui/use-toast";
+import { User, Briefcase } from "lucide-react";
 
 const statusMap = {
   new: { label: "חדש", className: "bg-accent/10 text-accent" },
@@ -36,6 +38,36 @@ export default function NominationsAdmin() {
         <h1 className="text-3xl font-bold text-foreground">המלצות למומחים</h1>
         <p className="text-muted-foreground mt-1">ניהול המלצות למועמדים במחזורים הבאים</p>
       </div>
+
+      {nominations.length > 0 && (
+        <div className="mb-12 bg-muted/30 rounded-2xl p-8">
+          <h2 className="text-xl font-semibold text-foreground mb-6">נרשמו להתנדבות</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {nominations.map((nom, i) => (
+              <motion.div
+                key={nom.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: i * 0.05 }}
+                className="bg-card rounded-2xl border border-border/50 p-4 flex items-start gap-3"
+              >
+                <div className="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+                  <User className="w-4 h-4 text-accent" />
+                </div>
+                <div className="min-w-0">
+                  <p className="font-semibold text-foreground text-sm truncate">{nom.nominee_name}</p>
+                  {nom.expertise_area && (
+                    <p className="text-xs text-muted-foreground flex items-center gap-1 mt-1">
+                      <Briefcase className="w-3 h-3" />
+                      {nom.expertise_area}
+                    </p>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="bg-card rounded-2xl border border-border/50 overflow-hidden">
         <Table>
