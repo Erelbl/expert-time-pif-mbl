@@ -1,11 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import AdminSidebar from "./AdminSidebar";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Menu, Lock } from "lucide-react";
+
+const ADMIN_PASSWORD = "experttime2024";
 
 export default function AdminLayout() {
+  const [authenticated, setAuthenticated] = useState(
+    () => sessionStorage.getItem("adminAuth") === "true"
+  );
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (password === ADMIN_PASSWORD) {
+      sessionStorage.setItem("adminAuth", "true");
+      setAuthenticated(true);
+    } else {
+      setError(true);
+      setPassword("");
+    }
+  };
+
+  if (!authenticated) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="bg-card border border-border/50 rounded-2xl p-10 w-full max-w-sm shadow-lg">
+          <div className="flex flex-col items-center mb-8">
+            <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+              <Lock className="w-7 h-7 text-primary" />
+            </div>
+            <h1 className="text-2xl font-bold text-foreground">כניסה לניהול</h1>
+            <p className="text-muted-foreground text-sm mt-1">הזן סיסמא להמשך</p>
+          </div>
+          <form onSubmit={handleLogin} className="space-y-4">
+            <Input
+              type="password"
+              placeholder="סיסמא"
+              value={password}
+              onChange={(e) => { setPassword(e.target.value); setError(false); }}
+              className="rounded-xl text-center"
+              autoFocus
+            />
+            {error && <p className="text-destructive text-sm text-center">סיסמא שגויה</p>}
+            <Button type="submit" className="w-full rounded-xl">כניסה</Button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex min-h-screen bg-background">
       <AdminSidebar />
