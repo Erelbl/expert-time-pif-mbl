@@ -1,11 +1,12 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Users, Calendar, BarChart3, MessageSquare, Star, Settings, Sparkles } from "lucide-react";
+import { Users, Calendar, BarChart3, Star, Settings, Sparkles } from "lucide-react";
 
 const menuItems = [
   { icon: Users, label: "מומחים", path: "/admin" },
   { icon: Calendar, label: "הזמנות", path: "/admin/bookings" },
   { icon: Settings, label: "מחזורים", path: "/admin/cohorts" },
+  { icon: Star, label: "נרשמו להתנדבות", path: "/admin/nominations" },
   { icon: BarChart3, label: "סטטיסטיקות", path: "/admin/stats" },
 ];
 
