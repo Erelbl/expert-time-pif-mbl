@@ -55,6 +55,19 @@ export default function Experts() {
   }, [pastExperts, activeFilter]);
 
   // Group filtered past experts by cohort_name
+  const hebrewMonthOrder = {
+    "ינואר": 1, "פברואר": 2, "מרץ": 3, "אפריל": 4, "מאי": 5, "יוני": 6,
+    "יולי": 7, "אוגוסט": 8, "ספטמבר": 9, "אוקטובר": 10, "נובמבר": 11, "דצמבר": 12
+  };
+
+  const parseCohortDate = (name) => {
+    if (!name) return 0;
+    const parts = name.trim().split(" ");
+    const month = hebrewMonthOrder[parts[0]] || 0;
+    const year = parseInt(parts[1]) || 0;
+    return year * 100 + month;
+  };
+
   const groupedByCycle = useMemo(() => {
     const groups = {};
     filteredPast.forEach((expert) => {
@@ -62,7 +75,7 @@ export default function Experts() {
       if (!groups[key]) groups[key] = [];
       groups[key].push(expert);
     });
-    return Object.entries(groups).sort((a, b) => b[0].localeCompare(a[0]));
+    return Object.entries(groups).sort((a, b) => parseCohortDate(b[0]) - parseCohortDate(a[0]));
   }, [filteredPast]);
 
   const visibleCycles = showAllCycles ? groupedByCycle : groupedByCycle.slice(0, 2);
