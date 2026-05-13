@@ -73,7 +73,7 @@ export default function PastExpertCard({ expert, index = 0 }) {
           </Badge>
 
           {/* Short bio always visible */}
-          <p className="text-muted-foreground text-xs leading-relaxed mt-2 line-clamp-2">
+          <p className="text-muted-foreground text-xs leading-relaxed mt-2">
             {expert.short_bio}
           </p>
         </div>
