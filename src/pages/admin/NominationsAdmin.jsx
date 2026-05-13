@@ -35,48 +35,20 @@ export default function NominationsAdmin() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-foreground">המלצות למומחים</h1>
-        <p className="text-muted-foreground mt-1">ניהול המלצות למועמדים במחזורים הבאים</p>
+        <h1 className="text-3xl font-bold text-foreground">נרשמו להתנדבות</h1>
+        <p className="text-muted-foreground mt-1">ניהול בקשות התנדבות מחברי הקהילה</p>
       </div>
-
-      {nominations.length > 0 && (
-        <div className="mb-12 bg-muted/30 rounded-2xl p-8">
-          <h2 className="text-xl font-semibold text-foreground mb-6">נרשמו להתנדבות</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {nominations.map((nom, i) => (
-              <motion.div
-                key={nom.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: i * 0.05 }}
-                className="bg-card rounded-2xl border border-border/50 p-4 flex items-start gap-3"
-              >
-                <div className="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
-                  <User className="w-4 h-4 text-accent" />
-                </div>
-                <div className="min-w-0">
-                  <p className="font-semibold text-foreground text-sm truncate">{nom.nominee_name}</p>
-                  {nom.expertise_area && (
-                    <p className="text-xs text-muted-foreground flex items-center gap-1 mt-1">
-                      <Briefcase className="w-3 h-3" />
-                      {nom.expertise_area}
-                    </p>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      )}
 
       <div className="bg-card rounded-2xl border border-border/50 overflow-hidden">
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>מועמד</TableHead>
-              <TableHead>ממליץ</TableHead>
-              <TableHead>תחום</TableHead>
-              <TableHead>סיבה</TableHead>
+              <TableHead>שם</TableHead>
+              <TableHead>אימייל</TableHead>
+              <TableHead>טלפון</TableHead>
+              <TableHead>נבחרת</TableHead>
+              <TableHead>תחום מומחיות</TableHead>
+              <TableHead>תיאור</TableHead>
               <TableHead>סטטוס</TableHead>
               <TableHead>עדכון</TableHead>
             </TableRow>
@@ -85,9 +57,11 @@ export default function NominationsAdmin() {
             {nominations.map((nom) => (
               <TableRow key={nom.id}>
                 <TableCell className="font-semibold">{nom.nominee_name}</TableCell>
-                <TableCell>{nom.nominator_name}</TableCell>
+                <TableCell className="text-sm">{nom.nominee_email || "—"}</TableCell>
+                <TableCell className="text-sm">{nom.phone || "—"}</TableCell>
+                <TableCell className="text-sm">{nom.cohort_name || "—"}</TableCell>
                 <TableCell><Badge variant="secondary">{nom.expertise_area}</Badge></TableCell>
-                <TableCell className="max-w-[200px] truncate text-sm text-muted-foreground">{nom.reason || "—"}</TableCell>
+                <TableCell className="max-w-[200px] truncate text-sm text-muted-foreground">{nom.short_bio || "—"}</TableCell>
                 <TableCell>
                   <Badge className={statusMap[nom.status]?.className}>{statusMap[nom.status]?.label}</Badge>
                 </TableCell>
@@ -106,7 +80,7 @@ export default function NominationsAdmin() {
             ))}
             {nominations.length === 0 && !isLoading && (
               <TableRow>
-                <TableCell colSpan={6} className="text-center py-12 text-muted-foreground">אין המלצות</TableCell>
+                <TableCell colSpan={8} className="text-center py-12 text-muted-foreground">אין בקשות</TableCell>
               </TableRow>
             )}
           </TableBody>
