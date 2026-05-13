@@ -70,10 +70,7 @@ export default function PastExpertCard({ expert, index = 0 }) {
             ))}
           </div>
 
-          {/* Short bio always visible */}
-          <p className="text-muted-foreground text-xs leading-relaxed mt-2">
-            {expert.short_bio}
-          </p>
+
         </div>
       </div>
 
