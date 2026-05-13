@@ -64,7 +64,7 @@ export default function PastExpertCard({ expert, index = 0 }) {
               {expert.expertise_area}
             </Badge>
             {expert.industries?.slice(0, 2).map((ind) => (
-              <Badge key={ind} variant="outline" className="text-xs border-accent/30 text-accent px-2 py-0.5">
+              <Badge key={ind} variant="outline" className="text-xs border-border/50 text-muted-foreground px-2 py-0.5">
                 {ind}
               </Badge>
             ))}
