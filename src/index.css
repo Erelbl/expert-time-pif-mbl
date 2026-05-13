@@ -9,39 +9,39 @@
     --font-heebo: 'Heebo', sans-serif;
     --font-inter: 'Inter', sans-serif;
 
-    --background: 0 0% 98%;
-    --foreground: 220 20% 15%;
+    --background: 210 17% 97%;
+    --foreground: 213 52% 24%;
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 15%;
+    --card-foreground: 213 52% 24%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 15%;
-    --primary: 217 58% 42%;
+    --popover-foreground: 213 52% 24%;
+    --primary: 213 52% 24%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 158 52% 48%;
+    --secondary: 155 67% 39%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 215 20% 94%;
-    --muted-foreground: 215 15% 48%;
-    --accent: 158 52% 48%;
+    --muted: 210 20% 93%;
+    --muted-foreground: 210 15% 50%;
+    --accent: 155 67% 39%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 215 20% 88%;
     --input: 215 20% 88%;
     --ring: 172 57% 44%;
-    --chart-1: 217 58% 42%;
-    --chart-2: 158 52% 48%;
-    --chart-3: 217 45% 55%;
-    --chart-4: 158 40% 65%;
-    --chart-5: 217 20% 60%;
+    --chart-1: 213 52% 24%;
+    --chart-2: 155 67% 39%;
+    --chart-3: 213 40% 45%;
+    --chart-4: 155 50% 58%;
+    --chart-5: 213 20% 60%;
     --radius: 0.75rem;
-    --sidebar-background: 217 58% 22%;
+    --sidebar-background: 213 52% 18%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 158 52% 48%;
+    --sidebar-primary: 155 67% 39%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 217 50% 30%;
+    --sidebar-accent: 213 45% 28%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 217 40% 32%;
-    --sidebar-ring: 158 52% 48%;
+    --sidebar-border: 213 40% 30%;
+    --sidebar-ring: 155 67% 39%;
   }
 
   .dark {
@@ -51,13 +51,13 @@
     --card-foreground: 0 0% 95%;
     --popover: 218 50% 15%;
     --popover-foreground: 0 0% 95%;
-    --primary: 158 52% 48%;
+    --primary: 155 67% 39%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 217 45% 25%;
+    --secondary: 213 45% 25%;
     --secondary-foreground: 0 0% 95%;
-    --muted: 217 40% 18%;
-    --muted-foreground: 215 15% 62%;
-    --accent: 158 52% 48%;
+    --muted: 213 40% 18%;
+    --muted-foreground: 213 15% 62%;
+    --accent: 155 67% 39%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
@@ -92,13 +92,13 @@
 
 @layer utilities {
   .text-gold-gradient {
-    background: linear-gradient(135deg, hsl(158 52% 48%), hsl(158 65% 62%), hsl(217 58% 55%));
+    background: linear-gradient(135deg, hsl(155 67% 39%), hsl(155 67% 55%), hsl(155 67% 39%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   .bg-hero-gradient {
-    background: linear-gradient(135deg, hsl(217 58% 18%) 0%, hsl(217 58% 28%) 50%, hsl(217 50% 36%) 100%);
+    background: linear-gradient(135deg, hsl(213 52% 14%) 0%, hsl(213 52% 20%) 50%, hsl(213 45% 28%) 100%);
   }
   .glass-card {
     background: rgba(255, 255, 255, 0.08);
