@@ -24,11 +24,21 @@ export default function NominationSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    await base44.integrations.Core.SendEmail({
-      to: "info@experttime.co.il",
-      subject: `בקשת התנדבות: ${form.full_name}`,
-      body: `שם: ${form.full_name}\nאימייל: ${form.email}\nטלפון: ${form.phone}\nנבחרת: ${form.cohort_name}\nתחום מומחיות: ${form.expertise_area}\nתיאור: ${form.short_bio}`
-    });
+    await Promise.all([
+      base44.entities.Nomination.create({
+        nominee_name: form.full_name,
+        nominee_email: form.email,
+        nominator_name: form.full_name,
+        expertise_area: form.expertise_area,
+        reason: `נבחרת: ${form.cohort_name}\n${form.short_bio}`,
+        status: "new",
+      }),
+      base44.integrations.Core.SendEmail({
+        to: "info@experttime.co.il",
+        subject: `בקשת התנדבות: ${form.full_name}`,
+        body: `שם: ${form.full_name}\nאימייל: ${form.email}\nטלפון: ${form.phone}\nנבחרת: ${form.cohort_name}\nתחום מומחיות: ${form.expertise_area}\nתיאור: ${form.short_bio}`
+      }),
+    ]);
     setLoading(false);
     setSubmitted(true);
     toast({ title: "תודה!", description: "קיבלנו את פרטיך. נחזור אליך בקרוב." });

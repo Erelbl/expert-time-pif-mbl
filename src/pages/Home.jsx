@@ -5,6 +5,7 @@ import CurrentExpertsSection from "@/components/home/CurrentExpertsSection";
 import ProcessSection from "@/components/home/ProcessSection";
 import PreviousExpertsSection from "@/components/home/PreviousExpertsSection";
 import NominationSection from "@/components/home/NominationSection";
+import VolunteersListSection from "@/components/home/VolunteersListSection";
 import FooterSection from "@/components/home/FooterSection";
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <ProcessSection />
       <PreviousExpertsSection />
       <NominationSection />
+      <VolunteersListSection />
       <FooterSection />
     </div>
   );
