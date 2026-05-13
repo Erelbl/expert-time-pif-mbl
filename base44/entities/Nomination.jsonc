@@ -10,17 +10,21 @@
       "type": "string",
       "description": "\u05d0\u05d9\u05de\u05d9\u05d9\u05dc \u05d4\u05de\u05d5\u05e2\u05de\u05d3"
     },
-    "nominator_name": {
+    "phone": {
       "type": "string",
-      "description": "\u05e9\u05dd \u05d4\u05de\u05de\u05dc\u05d9\u05e5"
+      "description": "\u05d8\u05dc\u05e4\u05d5\u05df \u05d4\u05de\u05d5\u05e2\u05de\u05d3"
+    },
+    "cohort_name": {
+      "type": "string",
+      "description": "\u05e9\u05dd \u05d4\u05e0\u05d1\u05d7\u05e8\u05ea"
     },
     "expertise_area": {
       "type": "string",
       "description": "\u05ea\u05d7\u05d5\u05dd \u05de\u05d5\u05de\u05d7\u05d9\u05d5\u05ea"
     },
-    "reason": {
+    "short_bio": {
       "type": "string",
-      "description": "\u05e1\u05d9\u05d1\u05ea \u05d4\u05d4\u05de\u05dc\u05e6\u05d4"
+      "description": "\u05ea\u05d9\u05d0\u05d5\u05e8 \u05e7\u05e6\u05e8"
     },
     "status": {
       "type": "string",
@@ -35,7 +39,6 @@
   },
   "required": [
     "nominee_name",
-    "nominator_name",
     "expertise_area"
   ]
 }

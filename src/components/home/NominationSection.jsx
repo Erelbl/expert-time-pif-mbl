@@ -28,9 +28,10 @@ export default function NominationSection() {
       base44.entities.Nomination.create({
         nominee_name: form.full_name,
         nominee_email: form.email,
-        nominator_name: form.full_name,
+        phone: form.phone,
+        cohort_name: form.cohort_name,
         expertise_area: form.expertise_area,
-        reason: `נבחרת: ${form.cohort_name}\n${form.short_bio}`,
+        short_bio: form.short_bio,
         status: "new",
       }),
       base44.integrations.Core.SendEmail({
