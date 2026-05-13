@@ -14,8 +14,8 @@ export default function Home() {
       <AboutSection />
       <CurrentExpertsSection />
       <ProcessSection />
-      <PreviousExpertsSection />
       <NominationSection />
+      <PreviousExpertsSection />
       <FooterSection />
     </div>
   );
