@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Clock, Linkedin, ArrowLeft } from "lucide-react";
+import { Linkedin, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function ExpertCard({ expert, index = 0 }) {
@@ -34,19 +34,16 @@ export default function ExpertCard({ expert, index = 0 }) {
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
         
-        {/* Hours badge */}
-        <div className="absolute top-4 left-4">
-          <Badge
-            className={`${
-              isFull
-                ? "bg-destructive/90 text-destructive-foreground"
-                : "bg-accent/90 text-accent-foreground"
-            } px-3 py-1.5 text-sm font-semibold backdrop-blur-sm`}
-          >
-            <Clock className="w-3.5 h-3.5 ml-1.5" />
-            {isFull ? "אין שעות פנויות" : `${remaining}/${expert.total_hours || 4} שעות פנויות`}
-          </Badge>
-        </div>
+        {/* Industries badges */}
+        {expert.industries?.length > 0 && (
+          <div className="absolute top-4 left-4 flex flex-wrap gap-2 max-w-[calc(100%-2rem)]">
+            {expert.industries.slice(0, 2).map((ind) => (
+              <Badge key={ind} className="bg-accent/90 text-accent-foreground text-xs font-semibold backdrop-blur-sm">
+                {ind}
+              </Badge>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Content */}

@@ -68,9 +68,16 @@ export default function PastExpertCard({ expert, index = 0 }) {
             </div>
           </div>
 
-          <Badge variant="secondary" className="mt-2 text-xs font-medium px-2 py-0.5">
-            {expert.expertise_area}
-          </Badge>
+          <div className="flex flex-wrap gap-1.5 mt-2">
+            <Badge variant="secondary" className="text-xs font-medium px-2 py-0.5">
+              {expert.expertise_area}
+            </Badge>
+            {expert.industries?.slice(0, 2).map((ind) => (
+              <Badge key={ind} variant="outline" className="text-xs border-accent/30 text-accent px-2 py-0.5">
+                {ind}
+              </Badge>
+            ))}
+          </div>
 
           {/* Short bio always visible */}
           <p className="text-muted-foreground text-xs leading-relaxed mt-2">
