@@ -100,9 +100,10 @@ export default function NominationSection() {
                 />
               </div>
               <div className="space-y-2">
-                <Label>טלפון</Label>
+                <Label>טלפון *</Label>
                 <Input
                   type="tel"
+                  required
                   placeholder="05X-XXXXXXX"
                   value={form.phone}
                   onChange={(e) => updateField("phone", e.target.value)}
@@ -111,8 +112,9 @@ export default function NominationSection() {
                 />
               </div>
               <div className="space-y-2">
-                <Label>נבחרת</Label>
+                <Label>נבחרת *</Label>
                 <Input
+                  required
                   placeholder="שם הנבחרת"
                   value={form.cohort_name}
                   onChange={(e) => updateField("cohort_name", e.target.value)}
