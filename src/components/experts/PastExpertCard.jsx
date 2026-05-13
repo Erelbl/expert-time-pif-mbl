@@ -97,18 +97,7 @@ export default function PastExpertCard({ expert, index = 0 }) {
                 </div>
               )}
 
-              {expert.industries?.length > 0 && (
-                <div>
-                  <p className="text-sm font-semibold text-foreground mb-2">תעשיות</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {expert.industries.map((ind) => (
-                      <Badge key={ind} variant="outline" className="text-xs border-accent/30 text-accent">
-                        {ind}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              )}
+
 
               {expert.community_quote && (
                 <div className="bg-muted/50 rounded-xl p-4">
