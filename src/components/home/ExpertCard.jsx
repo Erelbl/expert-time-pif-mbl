@@ -51,7 +51,9 @@ export default function ExpertCard({ expert, index = 0 }) {
         <div className="mb-4">
           <h3 className="text-xl font-bold text-foreground mb-1">{expert.full_name}</h3>
           {expert.cohort_name && (
-            <p className="text-sm text-accent font-medium">{expert.cohort_name}</p>
+            <p className="text-sm text-accent font-medium">
+              {expert.cohort_name.match(/\d+/) ? expert.cohort_name.match(/\d+/)[0] : expert.cohort_name}
+            </p>
           )}
         </div>
 
