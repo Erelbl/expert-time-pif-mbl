@@ -7,7 +7,8 @@ import PastExpertCard from "@/components/experts/PastExpertCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Users, ChevronDown, Filter } from "lucide-react";
+import { Users, ChevronDown, Filter, ChevronUp } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 function SkeletonCard() {
   return (
@@ -158,7 +159,7 @@ export default function Experts() {
               </div>
             </motion.div>
 
-            {/* Filter bar */}
+            {/* Filter dropdown */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -166,29 +167,26 @@ export default function Experts() {
               transition={{ duration: 0.4 }}
               className="mb-10"
             >
-              <div className="flex items-center gap-2 mb-3">
+              <div className="flex items-center gap-3">
                 <Filter className="w-4 h-4 text-muted-foreground" />
                 <span className="text-sm font-medium text-muted-foreground">סינון לפי תחום:</span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {allAreas.map((area) => (
-                  <button
-                    key={area}
-                    onClick={() => setActiveFilter(area)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                      activeFilter === area
-                        ? "bg-primary text-primary-foreground shadow-md"
-                        : "bg-card border border-border/50 text-muted-foreground hover:border-accent/40 hover:text-accent"
-                    }`}
-                  >
-                    {area}
-                    {area !== "הכל" && (
-                      <span className="mr-1.5 text-xs opacity-60">
-                        ({pastExperts.filter((e) => e.expertise_area === area).length})
-                      </span>
-                    )}
-                  </button>
-                ))}
+                <Select value={activeFilter} onValueChange={setActiveFilter}>
+                  <SelectTrigger className="w-48">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {allAreas.map((area) => (
+                      <SelectItem key={area} value={area}>
+                        {area}
+                        {area !== "הכל" && (
+                          <span className="text-xs text-muted-foreground mr-2">
+                            ({pastExperts.filter((e) => e.expertise_area === area).length})
+                          </span>
+                        )}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
             </motion.div>
 
