@@ -62,10 +62,18 @@ export default function Experts() {
 
   const parseCohortDate = (name) => {
     if (!name) return 0;
-    const parts = name.trim().split(" ");
-    const month = hebrewMonthOrder[parts[0]] || 0;
-    const year = parseInt(parts[1]) || 0;
-    return year * 100 + month;
+    const trimmed = name.trim();
+    // Try "Month YYYY" format (e.g. "נובמבר 2025")
+    const parts = trimmed.split(/\s+/);
+    if (parts.length >= 2) {
+      const month = hebrewMonthOrder[parts[0]] || 0;
+      const year = parseInt(parts[parts.length - 1]) || 0;
+      if (year > 0) return year * 100 + month;
+    }
+    // Try pure year (e.g. "2025")
+    const year = parseInt(trimmed);
+    if (!isNaN(year)) return year * 100;
+    return 0;
   };
 
   const groupedByCycle = useMemo(() => {
