@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Linkedin, ChevronDown, ChevronUp, Calendar } from "lucide-react";
+import { Linkedin, Calendar } from "lucide-react";
 
 export default function PastExpertCard({ expert, index = 0 }) {
-  const [expanded, setExpanded] = useState(false);
 
   return (
     <motion.div
@@ -57,14 +56,6 @@ export default function PastExpertCard({ expert, index = 0 }) {
                   </Button>
                 </a>
               )}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="w-7 h-7 rounded-lg hover:text-accent hover:bg-accent/10"
-                onClick={() => setExpanded((v) => !v)}
-              >
-                {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-              </Button>
             </div>
           </div>
 
@@ -87,16 +78,7 @@ export default function PastExpertCard({ expert, index = 0 }) {
       </div>
 
       {/* Expanded content */}
-      <AnimatePresence>
-        {expanded && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <div className="px-5 pb-5 border-t border-border/40 pt-4 space-y-4">
+      <div className="px-5 pb-5 border-t border-border/40 pt-4 space-y-4">
               {(expert.full_bio || expert.short_bio) && (
                 <div>
                   <p className="text-sm font-semibold text-foreground mb-1">אודות</p>
@@ -133,10 +115,7 @@ export default function PastExpertCard({ expert, index = 0 }) {
                   <p className="text-sm text-muted-foreground italic">"{expert.community_quote}"</p>
                 </div>
               )}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      </div>
     </motion.div>
   );
 }
