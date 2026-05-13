@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Search, Calendar, MessageSquare, Star } from "lucide-react";
+import { Search, Calendar, MessageSquare } from "lucide-react";
 
 const steps = [
   {
@@ -21,12 +21,7 @@ const steps = [
     title: "שוחחו",
     description: "פגישת ייעוץ אישית עם המומחה — שאלו, התייעצו, למדו"
   },
-  {
-    icon: Star,
-    step: "04",
-    title: "שתפו",
-    description: "שתפו את חוויתכם והמליצו על מועמדים למחזור הבא"
-  }
+
 ];
 
 export default function ProcessSection() {
@@ -44,7 +39,7 @@ export default function ProcessSection() {
             איך זה עובד
           </h2>
           <h3 className="text-3xl md:text-5xl font-bold text-foreground">
-            4 צעדים פשוטים
+            3 צעדים פשוטים
           </h3>
         </motion.div>
 
