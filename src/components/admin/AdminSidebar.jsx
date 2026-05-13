@@ -6,8 +6,6 @@ const menuItems = [
   { icon: Users, label: "מומחים", path: "/admin" },
   { icon: Calendar, label: "הזמנות", path: "/admin/bookings" },
   { icon: Settings, label: "מחזורים", path: "/admin/cohorts" },
-  { icon: Star, label: "המלצות", path: "/admin/nominations" },
-  { icon: MessageSquare, label: "עדויות", path: "/admin/testimonials" },
   { icon: BarChart3, label: "סטטיסטיקות", path: "/admin/stats" },
 ];
 
