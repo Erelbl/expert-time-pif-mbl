@@ -71,7 +71,7 @@ export default function ExpertCard({ expert, index = 0 }) {
               className="w-full bg-primary hover:bg-primary/90 rounded-xl font-semibold"
               disabled={isFull}
             >
-              {isFull ? "רשימת המתנה" : "קביעת שיחה"}
+              {isFull ? "רשימת המתנה" : "קביעת פגישה"}
               <ArrowLeft className="w-4 h-4 mr-2" />
             </Button>
           </Link>
