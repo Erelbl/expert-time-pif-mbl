@@ -62,7 +62,7 @@ export default function ExpertCard({ expert, index = 0 }) {
           {expert.expertise_area}
         </Badge>
 
-        <p className="text-muted-foreground text-sm leading-relaxed mb-6 line-clamp-3">
+        <p className="text-muted-foreground text-sm leading-relaxed mb-6 line-clamp-none">
           {expert.short_bio}
         </p>
 
