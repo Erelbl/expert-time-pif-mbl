@@ -26,7 +26,7 @@ export default function PreviousExpertsSection() {
             ארכיון
           </h2>
           <h3 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            מומחים מהמחזורים הקודמים
+            מומחים שנפגשו עם הקהילה
           </h3>
           <p className="text-lg text-muted-foreground">
             תודה למומחים שתרמו מזמנם וידעם לקהילה
