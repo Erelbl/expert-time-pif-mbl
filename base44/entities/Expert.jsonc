@@ -1,0 +1,100 @@
+{
+  "name": "Expert",
+  "type": "object",
+  "properties": {
+    "full_name": {
+      "type": "string",
+      "description": "\u05e9\u05dd \u05de\u05dc\u05d0"
+    },
+    "photo_url": {
+      "type": "string",
+      "description": "\u05ea\u05de\u05d5\u05e0\u05ea \u05e4\u05e8\u05d5\u05e4\u05d9\u05dc"
+    },
+    "cohort_name": {
+      "type": "string",
+      "description": "\u05e0\u05d1\u05d7\u05e8\u05ea / \u05de\u05d7\u05d6\u05d5\u05e8"
+    },
+    "expertise_area": {
+      "type": "string",
+      "description": "\u05ea\u05d7\u05d5\u05dd \u05de\u05d5\u05de\u05d7\u05d9\u05d5\u05ea"
+    },
+    "short_bio": {
+      "type": "string",
+      "description": "\u05d1\u05d9\u05d5\u05d2\u05e8\u05e4\u05d9\u05d4 \u05e7\u05e6\u05e8\u05d4"
+    },
+    "full_bio": {
+      "type": "string",
+      "description": "\u05d1\u05d9\u05d5\u05d2\u05e8\u05e4\u05d9\u05d4 \u05de\u05dc\u05d0\u05d4"
+    },
+    "industries": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "\u05ea\u05e2\u05e9\u05d9\u05d5\u05ea"
+    },
+    "experience": {
+      "type": "string",
+      "description": "\u05e0\u05d9\u05e1\u05d9\u05d5\u05df \u05de\u05e7\u05e6\u05d5\u05e2\u05d9"
+    },
+    "linkedin_url": {
+      "type": "string",
+      "description": "\u05e7\u05d9\u05e9\u05d5\u05e8 \u05dc\u05d9\u05e0\u05e7\u05d3\u05d0\u05d9\u05df"
+    },
+    "community_quote": {
+      "type": "string",
+      "description": "\u05e6\u05d9\u05d8\u05d5\u05d8 / \u05e4\u05d9\u05dc\u05d5\u05e1\u05d5\u05e4\u05d9\u05d4 \u05e7\u05d4\u05d9\u05dc\u05ea\u05d9\u05ea"
+    },
+    "total_hours": {
+      "type": "number",
+      "default": 4,
+      "description": "\u05e1\u05d4\"\u05db \u05e9\u05e2\u05d5\u05ea \u05dc\u05ea\u05e8\u05d5\u05de\u05d4"
+    },
+    "booked_hours": {
+      "type": "number",
+      "default": 0,
+      "description": "\u05e9\u05e2\u05d5\u05ea \u05e9\u05e0\u05ea\u05e4\u05e1\u05d5"
+    },
+    "is_current": {
+      "type": "boolean",
+      "default": true,
+      "description": "\u05de\u05d5\u05de\u05d7\u05d4 \u05e0\u05d5\u05db\u05d7\u05d9"
+    },
+    "cycle_id": {
+      "type": "string",
+      "description": "\u05de\u05d6\u05d4\u05d4 \u05de\u05d7\u05d6\u05d5\u05e8 \u05e0\u05d5\u05db\u05d7\u05d9"
+    },
+    "available_slots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string"
+          },
+          "is_booked": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      },
+      "description": "\u05d7\u05dc\u05d5\u05e0\u05d5\u05ea \u05d6\u05de\u05df \u05d6\u05de\u05d9\u05e0\u05d9\u05dd"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "archived"
+      ],
+      "default": "active"
+    }
+  },
+  "required": [
+    "full_name",
+    "expertise_area"
+  ]
+}

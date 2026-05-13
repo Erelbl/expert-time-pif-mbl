@@ -1,0 +1,57 @@
+{
+  "name": "Booking",
+  "type": "object",
+  "properties": {
+    "expert_id": {
+      "type": "string",
+      "description": "\u05de\u05d6\u05d4\u05d4 \u05de\u05d5\u05de\u05d7\u05d4"
+    },
+    "expert_name": {
+      "type": "string",
+      "description": "\u05e9\u05dd \u05d4\u05de\u05d5\u05de\u05d7\u05d4"
+    },
+    "booker_name": {
+      "type": "string",
+      "description": "\u05e9\u05dd \u05d4\u05de\u05d6\u05de\u05d9\u05df"
+    },
+    "booker_email": {
+      "type": "string",
+      "description": "\u05d0\u05d9\u05de\u05d9\u05d9\u05dc \u05d4\u05de\u05d6\u05de\u05d9\u05df"
+    },
+    "booker_phone": {
+      "type": "string",
+      "description": "\u05d8\u05dc\u05e4\u05d5\u05df \u05d4\u05de\u05d6\u05de\u05d9\u05df"
+    },
+    "date": {
+      "type": "string",
+      "description": "\u05ea\u05d0\u05e8\u05d9\u05da \u05d4\u05e4\u05d2\u05d9\u05e9\u05d4"
+    },
+    "time": {
+      "type": "string",
+      "description": "\u05e9\u05e2\u05ea \u05d4\u05e4\u05d2\u05d9\u05e9\u05d4"
+    },
+    "topic": {
+      "type": "string",
+      "description": "\u05e0\u05d5\u05e9\u05d0 \u05d4\u05d9\u05d9\u05e2\u05d5\u05e5"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "confirmed",
+        "completed",
+        "cancelled"
+      ],
+      "default": "pending"
+    },
+    "notes": {
+      "type": "string",
+      "description": "\u05d4\u05e2\u05e8\u05d5\u05ea"
+    }
+  },
+  "required": [
+    "expert_id",
+    "booker_name",
+    "booker_email"
+  ]
+}
