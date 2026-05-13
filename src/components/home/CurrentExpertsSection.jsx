@@ -28,7 +28,7 @@ export default function CurrentExpertsSection() {
             המומחים שלנו
           </h3>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            הכירו את 4 המומחים של המחזור הנוכחי — מוכנים לשתף מהניסיון והידע שלהם
+            הכירו את 4 המומחים שלנו - מוכנים לשתף מהניסיון והמידע שלהם
           </p>
         </motion.div>
 
