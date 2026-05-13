@@ -14,13 +14,15 @@ export default function StatsAdmin() {
   const completedBookings = bookings.filter((b) => b.status === "completed").length;
   const pendingBookings = bookings.filter((b) => b.status === "pending").length;
 
+  const registeredNominees = nominations.filter((n) => n.status === "accepted").length;
+
   const stats = [
     { icon: Users, label: "מומחים כוללים", value: experts.length, color: "text-accent" },
     { icon: Star, label: "מומחים פעילים", value: currentExperts.length, color: "text-green-600" },
     { icon: Clock, label: "שעות שנתרמו", value: totalHoursDonated, color: "text-blue-600" },
     { icon: Calendar, label: "הזמנות ממתינות", value: pendingBookings, color: "text-accent" },
-    { icon: Award, label: "שיחות הושלמו", value: completedBookings, color: "text-green-600" },
-    { icon: TrendingUp, label: "המלצות", value: nominations.length, color: "text-purple-600" },
+    { icon: TrendingUp, label: "נרשמו כמומחים", value: nominations.length, color: "text-purple-600" },
+    { icon: Award, label: "מועמדויות שאושרו", value: registeredNominees, color: "text-green-600" },
   ];
 
   return (
