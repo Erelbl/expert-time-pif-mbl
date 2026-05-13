@@ -70,7 +70,7 @@ export default function HeroSection() {
                 size="lg"
                 className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-10 py-6 rounded-full font-semibold shadow-lg shadow-accent/20 transition-all hover:shadow-xl hover:shadow-accent/30 hover:scale-105"
               >
-                קביעת שיחה
+                קביעת פגישה
                 <ArrowLeft className="w-5 h-5 mr-2" />
               </Button>
             </Link>
