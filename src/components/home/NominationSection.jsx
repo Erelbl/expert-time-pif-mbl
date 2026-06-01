@@ -25,6 +25,8 @@ export default function NominationSection() {
     slot2_time: "",
     slot3_date: "",
     slot3_time: "",
+    slot4_date: "",
+    slot4_time: "",
   });
 
   const handleSubmit = async (e) => {
@@ -43,7 +45,7 @@ export default function NominationSection() {
       base44.integrations.Core.SendEmail({
         to: "info@experttime.co.il",
         subject: `בקשת התנדבות: ${form.full_name}`,
-        body: `שם: ${form.full_name}\nאימייל: ${form.email}\nטלפון: ${form.phone}\nנבחרת: ${form.cohort_name}\nתחום מומחיות: ${form.expertise_area}\nתיאור: ${form.short_bio}\nמועד 1: ${form.slot1_date} ${form.slot1_time}\nמועד 2: ${form.slot2_date} ${form.slot2_time}\nמועד 3: ${form.slot3_date} ${form.slot3_time}`
+        body: `שם: ${form.full_name}\nאימייל: ${form.email}\nטלפון: ${form.phone}\nנבחרת: ${form.cohort_name}\nתחום מומחיות: ${form.expertise_area}\nתיאור: ${form.short_bio}\nמועד 1: ${form.slot1_date} ${form.slot1_time}\nמועד 2: ${form.slot2_date} ${form.slot2_time}\nמועד 3: ${form.slot3_date} ${form.slot3_time}\nמועד 4: ${form.slot4_date} ${form.slot4_time}`
       }),
     ]);
     setLoading(false);
@@ -165,7 +167,7 @@ export default function NominationSection() {
                 <Calendar className="w-5 h-5 text-accent" />
                 <Label className="text-base font-semibold">3 מועדים בהם אתם פנויים *</Label>
               </div>
-              {[1, 2, 3].map((num) => (
+              {[1, 2, 3, 4].map((num) => (
                 <div key={num} className="grid grid-cols-2 gap-3 p-4 bg-muted/30 rounded-xl border border-border/40">
                   <div className="space-y-1">
                     <Label className="text-sm text-muted-foreground">מועד {num} — תאריך</Label>
