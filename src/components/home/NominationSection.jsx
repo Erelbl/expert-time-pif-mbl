@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
-import { Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle, Calendar } from "lucide-react";
 
 export default function NominationSection() {
   const { toast } = useToast();
@@ -19,6 +19,12 @@ export default function NominationSection() {
     cohort_name: "",
     expertise_area: "",
     short_bio: "",
+    slot1_date: "",
+    slot1_time: "",
+    slot2_date: "",
+    slot2_time: "",
+    slot3_date: "",
+    slot3_time: "",
   });
 
   const handleSubmit = async (e) => {
@@ -37,7 +43,7 @@ export default function NominationSection() {
       base44.integrations.Core.SendEmail({
         to: "info@experttime.co.il",
         subject: `בקשת התנדבות: ${form.full_name}`,
-        body: `שם: ${form.full_name}\nאימייל: ${form.email}\nטלפון: ${form.phone}\nנבחרת: ${form.cohort_name}\nתחום מומחיות: ${form.expertise_area}\nתיאור: ${form.short_bio}`
+        body: `שם: ${form.full_name}\nאימייל: ${form.email}\nטלפון: ${form.phone}\nנבחרת: ${form.cohort_name}\nתחום מומחיות: ${form.expertise_area}\nתיאור: ${form.short_bio}\nמועד 1: ${form.slot1_date} ${form.slot1_time}\nמועד 2: ${form.slot2_date} ${form.slot2_time}\nמועד 3: ${form.slot3_date} ${form.slot3_time}`
       }),
     ]);
     setLoading(false);
@@ -152,6 +158,39 @@ export default function NominationSection() {
                 className="rounded-xl min-h-[120px]"
               />
             </div>
+
+            {/* Availability slots */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Calendar className="w-5 h-5 text-accent" />
+                <Label className="text-base font-semibold">3 מועדים בהם אתם פנויים *</Label>
+              </div>
+              {[1, 2, 3].map((num) => (
+                <div key={num} className="grid grid-cols-2 gap-3 p-4 bg-muted/30 rounded-xl border border-border/40">
+                  <div className="space-y-1">
+                    <Label className="text-sm text-muted-foreground">מועד {num} — תאריך</Label>
+                    <Input
+                      type="date"
+                      required
+                      value={form[`slot${num}_date`]}
+                      onChange={(e) => updateField(`slot${num}_date`, e.target.value)}
+                      className="rounded-xl"
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <Label className="text-sm text-muted-foreground">מועד {num} — שעה</Label>
+                    <Input
+                      type="time"
+                      required
+                      value={form[`slot${num}_time`]}
+                      onChange={(e) => updateField(`slot${num}_time`, e.target.value)}
+                      className="rounded-xl"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+
             <Button
               type="submit"
               disabled={loading}
