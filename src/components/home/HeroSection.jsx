@@ -55,8 +55,8 @@ export default function HeroSection() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-lg text-primary-foreground/40 max-w-2xl mx-auto mb-12 leading-relaxed"
           >
-            בכל סבב, 4 מומחים מקהילת הבוגרים של הופמן קופמן מתנדבים להעניק שעות ייעוץ לחברי
-            הקהילה. ידע, ניסיון וחיבור — מתוך הקהילה, לקהילה.
+            בכל סבב, 4 מומחים מקהילת בוגרי התוכניות הקצרות של הופמן קופמן מתנדבים להעניק שעות ייעוץ לחברי
+            הקהילה. ידע, ניסיון וחיבור - מתוך הקהילה, לקהילה.
           </motion.p>
 
           <motion.div
