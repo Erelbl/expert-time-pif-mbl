@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/components/ui/use-toast";
-import { Send, CheckCircle, Calendar } from "lucide-react";
+import { Send, CheckCircle, Calendar, Link2, ImagePlus } from "lucide-react";
 
 export default function NominationSection() {
   const { toast } = useToast();
@@ -16,9 +16,11 @@ export default function NominationSection() {
     full_name: "",
     email: "",
     phone: "",
-    cohort_name: "",
+    program_year: "",
     expertise_area: "",
     short_bio: "",
+    linkedin_url: "",
+    photo_file: null,
     slot1_date: "",
     slot1_time: "",
     slot2_date: "",
@@ -32,20 +34,27 @@ export default function NominationSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    let photo_url = "";
+    if (form.photo_file) {
+      const res = await base44.integrations.Core.UploadFile({ file: form.photo_file });
+      photo_url = res.file_url;
+    }
     await Promise.all([
       base44.entities.Nomination.create({
         nominee_name: form.full_name,
         nominee_email: form.email,
         phone: form.phone,
-        cohort_name: form.cohort_name,
+        cohort_name: form.program_year,
         expertise_area: form.expertise_area,
         short_bio: form.short_bio,
+        linkedin_url: form.linkedin_url,
+        photo_url,
         status: "new",
       }),
       base44.integrations.Core.SendEmail({
         to: "info@experttime.co.il",
         subject: `בקשת התנדבות: ${form.full_name}`,
-        body: `שם: ${form.full_name}\nאימייל: ${form.email}\nטלפון: ${form.phone}\nנבחרת: ${form.cohort_name}\nתחום מומחיות: ${form.expertise_area}\nתיאור: ${form.short_bio}\nמועד 1: ${form.slot1_date} ${form.slot1_time}\nמועד 2: ${form.slot2_date} ${form.slot2_time}\nמועד 3: ${form.slot3_date} ${form.slot3_time}\nמועד 4: ${form.slot4_date} ${form.slot4_time}`
+        body: `שם: ${form.full_name}\nאימייל: ${form.email}\nטלפון: ${form.phone}\nשנת השתתפות: ${form.program_year}\nתחום מומחיות: ${form.expertise_area}\nתיאור: ${form.short_bio}\nלינקדאין: ${form.linkedin_url}\nמועד 1: ${form.slot1_date} ${form.slot1_time}\nמועד 2: ${form.slot2_date} ${form.slot2_time}\nמועד 3: ${form.slot3_date} ${form.slot3_time}\nמועד 4: ${form.slot4_date} ${form.slot4_time}`
       }),
     ]);
     setLoading(false);
@@ -131,16 +140,17 @@ export default function NominationSection() {
                 />
               </div>
               <div className="space-y-2">
-                <Label>נבחרת *</Label>
+                <Label>שנת השתתפות בתוכנית *</Label>
                 <Input
                   required
-                  placeholder="שם הנבחרת"
-                  value={form.cohort_name}
-                  onChange={(e) => updateField("cohort_name", e.target.value)}
+                  placeholder="לדוגמה: 2023"
+                  value={form.program_year}
+                  onChange={(e) => updateField("program_year", e.target.value)}
                   className="rounded-xl"
                 />
               </div>
             </div>
+
             <div className="space-y-2">
               <Label>תחום מומחיות *</Label>
               <Input
@@ -151,6 +161,7 @@ export default function NominationSection() {
                 className="rounded-xl"
               />
             </div>
+
             <div className="space-y-2">
               <Label>קצת על עצמך</Label>
               <Textarea
@@ -161,11 +172,39 @@ export default function NominationSection() {
               />
             </div>
 
+            <div className="space-y-2">
+              <Label className="flex items-center gap-2">
+                <Link2 className="w-4 h-4 text-accent" />
+                לינקדאין (לא חובה)
+              </Label>
+              <Input
+                type="url"
+                placeholder="https://linkedin.com/in/..."
+                value={form.linkedin_url}
+                onChange={(e) => updateField("linkedin_url", e.target.value)}
+                className="rounded-xl"
+                dir="ltr"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label className="flex items-center gap-2">
+                <ImagePlus className="w-4 h-4 text-accent" />
+                תמונת פרופיל (לא חובה)
+              </Label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => updateField("photo_file", e.target.files?.[0] || null)}
+                className="w-full text-sm text-muted-foreground file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-accent/10 file:text-accent file:font-medium hover:file:bg-accent/20 cursor-pointer"
+              />
+            </div>
+
             {/* Availability slots */}
             <div className="space-y-4">
               <div className="flex items-center gap-2 mb-2">
                 <Calendar className="w-5 h-5 text-accent" />
-                <Label className="text-base font-semibold">3 מועדים בהם אתם פנויים *</Label>
+                <Label className="text-base font-semibold">4 מועדים בהם אתם פנויים *</Label>
               </div>
               {[1, 2, 3, 4].map((num) => (
                 <div key={num} className="grid grid-cols-2 gap-3 p-4 bg-muted/30 rounded-xl border border-border/40">
