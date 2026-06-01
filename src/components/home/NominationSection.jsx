@@ -204,7 +204,10 @@ export default function NominationSection() {
             <div className="space-y-4">
               <div className="flex items-center gap-2 mb-2">
                 <Calendar className="w-5 h-5 text-accent" />
-                <Label className="text-base font-semibold">4 מועדים בהם אתם פנויים *</Label>
+                <div>
+                  <Label className="text-base font-semibold">4 מועדים בהם אתם פנויים בחודש הקרוב *</Label>
+                  <p className="text-xs text-muted-foreground mt-0.5">משך פגישה כשעה</p>
+                </div>
               </div>
               {[1, 2, 3, 4].map((num) => (
                 <div key={num} className="grid grid-cols-2 gap-3 p-4 bg-muted/30 rounded-xl border border-border/40">
