@@ -48,7 +48,7 @@ export default function NominationSection() {
   const updateField = (field, value) => setForm((prev) => ({ ...prev, [field]: value }));
 
   return (
-    <section className="py-24 md:py-32 px-6 md:px-12">
+    <section id="nomination-section" className="py-24 md:py-32 px-6 md:px-12">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
